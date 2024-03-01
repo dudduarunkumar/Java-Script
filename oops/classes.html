@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onClick="abc()">abc</button>
+    <button onClick="xyz()">xyz</button>
+    <script>
+        // class Employee{
+        //     firstName;
+        //     lastName;
+        //     dob;
+        //     getAge(){}
+        // }
+        // var emp1=new Employee()
+        // console.log(emp1);
+
+        // ------------------------>
+
+        // class Employee{
+        //     firstName;
+        //     lastName;
+        //     dob;
+        //     constructor(fn,ln,db){
+        //         this.firstName=fn
+        //         this.lastName=ln;
+        //         this.dob= db
+        //     }
+        //     getAge(){}
+        // }
+        // var emp1=new Employee("Arun","Kumar","05-10-94")
+        // console.log(emp1); 
+
+            // Employee 
+            //     dob: "05-10-94"
+            //     firstName: "Arun"
+            //     lastName: "Kumar"
+            //     [[Prototype]]: Object
+            //         constructor: class Employee
+            //         getAge: ƒ getAge()
+            //         [[Prototype]]: Object
+
+            // ------------------->
+
+        class Employee{
+            firstName;
+            lastName;
+            dob;
+            constructor(fn,ln,db){
+                this.firstName=fn
+                this.lastName=ln;
+                this.dob= db
+            }
+            getAge(){
+                // alert("Hello Arun...")
+                // console.log(firstName); // undefined
+                // console.log(this.firstName); // Arun
+                console.log(this);
+            }
+        }
+        var emp1=new Employee("Arun","Kumar","05-10-94")
+        var emp2=new Employee("Virat","Kohli","05-02-84")
+        // console.log(emp1); 
+        // emp1.getAge()
+        function abc(){
+            emp1.getAge()
+        }
+    </script>
+    
+</body>
+</html>

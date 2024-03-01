@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shallow Copy and Deep Copy</title>
+</head>
+<body>
+    <script>
+        // <-----------
+        // ----------->
+
+        // <-----------
+            let a= "arun"
+            let b= "arun"
+            // console.log(a==b);       //true
+            let obj1={}
+            let obj2 = {}
+            // console.log(obj1==obj2);     //false
+        // ----------->
+
+        // <-----------
+            let user1 = {name:"Arun"}
+            let user2 = {name:"Arun"}
+            // console.log(user1==user2);  //false
+
+            let user3 = user1
+            // console.log(user3)   //{name:"Arun"}
+            // console.log(user1===user3);  //true
+            user3.lastName="Kumar"
+            user3.cricName="Vira Kohli"
+            // console.log(user1,user3)
+
+        // ----------->
+
+
+        // <-----------
+
+            let user4={name:"arun",age:25}
+            let user5={name:"arun",age:25}
+            // console.log(user4===user5) //false
+            let clone={}
+            for( let i in  user4){
+                clone[i]=user4[i]
+            }
+            // console.log(user4,clone)   
+                // now clone is a fully independent object with the same content 
+            // console.log(user4===clone)  //false
+            clone.age=27
+            // console.log(user4,clone)
+            
+                // `We can also use the method Object.assign.`
+                // Syntax: Object.assign(dest, ...sources)
+
+            let clone1={}
+            Object.assign(clone1,user4)
+            // console.log(clone1,user4)
+            // console.log(user4===clone1) //false
+
+        // ----------->
+
+
+        // <-----------Nested cloning
+            let user10 = {
+                name: "John",
+                sizes: {
+                    height: 182,
+                    width: 50
+                }
+            };
+
+            let clone10=Object.assign({},user10)
+            // console.log("clone10-->",clone10,"user10--->",user10)
+            // console.log(clone10===user10)
+            // console.log(clone10.name===user10.name)
+            // console.log(clone10.size===user10.size)  //// true, same object
+
+            user10.name="Arun"
+            clone10.name="Kumar"
+            // console.log("clone10-->",clone10,"user10--->",user10)
+
+                // user and clone share sizes
+            clone10.sizes.width=100
+            // console.log("clone10-->",clone10,"user10--->",user10)
+
+                // “deep cloning” or “structured cloning”.
+
+                // structuredClone:
+                // The call structuredClone(object) clones the object with all nested properties.
+
+            let user11 = {
+                name: "John",
+                sizes: {
+                    height: 182,
+                    width: 50
+                }
+            };
+
+            let clone11 = structuredClone(user11);
+
+            console.log( user11.sizes === clone11.sizes ); // false, different objects
+
+                // user and clone are totally unrelated now
+            user11.sizes.width = 60;    // change a property from one place
+            console.log("clone11.sizes.width:",clone11.sizes.width,"user11.sizes.width:",user11.sizes.width); // 50, not related
+
+
+        // ----------->
+
+        // <-----------
+
+        let user12 = {};
+        // let's create a circular reference:
+        // user.me references the user itself
+        user12.me = user12;
+        console.log(user12)
+
+        let clone12 = structuredClone(user12);
+        console.log(clone12)
+        console.log(clone12===user12)
+        console.log(clone12.me === clone12); // true
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+
+        // <-----------
+        // ----------->
+
+    </script>
+    
+</body>
+</html>

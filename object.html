@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // <------
+            let user = new Object()
+            // console.log("\"object constructor\" syntax----",user)
+
+            let user1 ={}
+            // console.log("\"object literal\" syntax",user1);
+            // /console.log(`"object literal"syntax`);
+        // ------->
+
+        // ------------>
+            let user2 = {
+                name : "arun",
+                age:27
+            }
+            // console.log(user2);     
+            // console.log(user.name);
+            // console.log(user2.isAdmin); //undefined
+        // ------------->
+
+            user2.isAdmin = true    //adding
+            user2.address = "Ongole"
+            // console.log(user2)
+            
+            delete user2.isAdmin;   // delete
+            // console.log(user2);
+
+        // -------- multiword property names ------>
+            // let user3 ={
+            //     name : "arun",
+            //     age:27,
+            //     full name:"Arun Kumar"
+            // }
+            // console.log(user3); //SyntaxError: Unexpected identifier 'name'
+            
+            let user03 ={
+                name : "arun",
+                age:27,
+                "full name":"Arun Kumar"  // multiword property name must be quoted
+            }
+        // ------------->
+
+        // <-----The last property in the list may end with a comma:called a “trailing” or “hanging” comma---->
+            let user4 ={
+                name : "arun",
+                age:27,
+                "full name":"Arun Kumar",
+            }
+
+        // <---------- Sqare brackets -----
+            let user04 ={
+                name : "arun",
+                age:27,
+                "full name":"Arun Kumar",
+            }
+            // user04.last name="Kumar"    // Error            
+            // let user5 ={
+            //     [apple]:"apple"
+            // }
+            // console.log(user5);  // Uncaught ReferenceError: apple is not defined
+            let user6 ={
+                ["apple"]:"apple"
+            }
+            // console.log(user6.apple);
+
+        // ----------->
+
+
+        // <--------
+            let obj01={
+                firstName:"Virat",
+                lastName:"Kohli",
+                "full name":"Virat Kohli"
+            }
+            // console.log(obj01);
+            // console.log(obj01.firstName)
+            // console.log(obj01[firstName])  //ReferenceError: firstName is not defined
+
+            // console.log(obj01.full name)    //SyntaxError: missing ) after argument list
+            let a="full name"
+            // console.log(obj01.a)  //undefined     
+            // console.log(obj01."full name")  //SyntaxError: Unexpected string
+            // console.log(obj01["full name"])
+
+            let obj0={}
+            obj0.name="Arun Kumar"
+            obj0.firstName="Arun"
+            obj0["last name"]="Kumar"
+            // console.log(obj0);
+        // ------>
+
+
+        // <------
+            let obj7={
+                [name]:"ARun"
+            }
+            // console.log(obj7)   //{"":"ARun"}
+
+            let obj07={
+                ["name"]:"Arun"
+            }
+            // console.log(obj07["name"]) //Arun 
+            // console.log(obj07[name])    // undefined
+        // ---------->
+            // We can use square brackets in an object literal, when creating an object. That’s called computed properties.
+            
+            let fruit1 = "apple"
+
+            let bag1 = {
+                [fruit1]: 5, // the name of the property is taken from the variable fruit
+            };
+            // console.log(bag1);  //{apple:5}
+
+
+
+            let fruit = 'apple';
+            let bag = { };
+            bag.fruit= "banana"
+            bag[fruit]="orange"
+            // bag[fruit]
+            // console.log("bag---",bag)
+        // ------------->
+
+        // <------
+
+            let obj6 = {
+                0: "test", // same as "0": "test"
+                _age:27
+            };
+
+            // both alerts access the same property (the number 0 is converted to string "0")
+            // console.log( obj6["0"] ); // test
+            // console.log( obj6[0] ); // test (same property)
+            // console.log(obj6.0)     //SyntaxError: missing ) after argument list
+            // console.log(obj6."0")   SyntaxError: Unexpected string
+
+            // console.log(obj6._age)  //27
+            // console.log(obj6[_age]) //ReferenceError: _age is not defined
+
+            let obj = {};
+            // console.log("abc=====:",obj);
+            obj.__proto__ = 5; // assign a number
+            // console.log("abc1=====:",obj);
+            // console.log(obj.__proto__);
+        // ------>
+
+        // <----- "in" operator
+            // Syntax: "key" in object
+            let obj1 = {
+                test: 5
+            };
+            // console.log(obj1.test1);    // undefined
+            // console.log(obj1.test==="undefined")    //true
+            
+            
+            let user10={
+                name : "Arun",
+                age:25
+            }
+            let aa = "name"
+            // console.log("name" in user10 )  //true
+            // console.log(name in user10)     // false
+            // console.log(aa in user10 )  //true
+            // console.log("aa" in user10 )  //false
+
+            // console.log(arun in user10)     // ReferenceError: arun is not defined
+            // console.log("arun" in user10)   //false      
+            
+        // -------->
+
+
+        // <---------
+            // Why does the in operator exist? Isn’t it enough to compare against undefined?
+            // Well, most of the time the comparison with undefined works fine. But there’s a special case when it fails, but "in" works correctly.
+            // It’s when an object property exists, but stores undefined:
+
+            let user17 = {
+                name: "John",
+                age: 30,
+                isAdmin: true,
+                test:undefined
+            };
+            // console.log(user17.name)  //John
+            // console.log(user17.name1)  //undefined
+
+            // console.log(user.test) //undefined  it's undefined, so - no such property?
+            // console.log("test" in user17)   // true, the property does exist!
+        // -------->
+
+
+        // <------------
+            let user7 = {
+                name: "John",
+                age: 30,
+                isAdmin: true
+            };
+            
+
+            for (let key in user7) {
+            // keys
+                // console.log(key)  // name, age, isAdmin
+            // values for the keys
+                // console.log( user7[key] ); // John, 30, true
+                // console.log( user7.key ); // undefined, undefined, undefined
+            }
+        // -------->
+
+        // <------------
+
+        // ------------>
+
+
+        // <------------
+            let codes = {
+                "49": "Germany",
+                "41": "Switzerland",
+                "44": "Great Britain",
+                // ..,
+                "1": "USA",
+                "11": "USA11",
+                "111": "USA111"
+            };
+
+            for (let code in codes) {
+                // console.log(code); // 1, 11, 41, 44, 49, 111
+                    // The “integer property” term here means a string that can be converted to-and-from an integer without a change.
+                
+                    // Number(...) explicitly converts to a number
+                    // Math.trunc is a built-in function that removes the decimal part
+                // console.log( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+                // console.log( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+                // console.log( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+            }
+            // console.log(String(Math.trunc(Number(49))) ); // "49", same, integer property
+            let xx=String(Math.trunc(Number(49)))
+            let yy=String(Math.trunc(Number("+49")))
+            // console.log(xx===yy)    //true
+
+            let xx1=String(Math.trunc(Number(49)))
+            let yy1=String(Math.trunc(Number("-49")))
+            // console.log(xx1===yy1)    //false
+
+            let codes1 = {
+                "+49": "Germany",
+                "+41": "Switzerland",
+                "+44": "Great Britain",
+                age:27,
+                "+1.3": "USA",
+                "+1.1": "USA11",
+                "+1.11": "USA111"
+            };
+
+            for (let i in codes1){
+                console.log(i)
+            }
+        // ------------>
+
+
+
+
+    </script>
+</body>
+
+</html>

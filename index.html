@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Server</h1>
+    <script>
+        fetch("http://localhost:8080/arunusers",{})
+        .then(res=>res.json())
+        .then(data=>console.log("data-----",data))
+
+        fetch("http://localhost:8080/createuser",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                "id":"",
+                "name":"Vikram",
+                "name1":"Dhruv",
+                "email":"vikram@gmail.com"
+            })
+
+
+        })
+        .then(res=>res.json())
+        .then(data=>console.log("data-----",data))
+    </script>
+</body>
+</html>

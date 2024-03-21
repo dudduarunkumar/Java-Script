@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        // $.get("https://dummyjson.com/products",function(data,status){
+        //     console.log({status,data})
+        // })
+
+        fetch("https://dummyjson.com/products")
+        .then(function(res){
+            res.json()
+            .then((data)=>console.log(data))
+            .catch(function(err){
+                console.log("inner function")
+            })
+        })
+        .catch(function(err){
+            if(err){
+                console.log("Something went wrong")
+            }
+        })
+
+
+        axios.get("https://dummyjson.com/products",)
+        .then(function(res){
+            console.log("axios data:",res);
+        })
+        .catch((err)=>console.log("axios error"))
+        
+    </script>
+</body>
+</html>

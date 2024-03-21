@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Callback");
+        // <--------
+        
+        // function display(c){
+        //     console.log(c);
+        // }
+        // function add(a,b,callback){
+        //     console.log(callback)  //ƒ display(c){
+        //                                 // console.log(c);
+        //                             // }
+        //     callback(a+b)
+        // }
+        // add(4,3,display)
+        // --------> 
+
+        // <--------
+        // function sub(a,b,callback){
+        //     callback(a-b)
+        // }
+        // sub(7,4,function(res){console.log(res);})
+        // --------> 
+
+        
+        // <--------
+        // --------> 
+        
+        
+        // <--------
+        // function mul(){
+        //     console.log("multi")
+        //                                 // ƒ mul(){
+        //                                 //     console.log("multi")
+        //                                 // }
+        // }
+        // console.log(mul)
+        // --------> 
+
+
+
+        // <--------
+        // function sub1(a,b){
+        //     return a-b
+        // }
+        // var r= sub1(10,"number")
+        // console.log("r--:",r) // NaN
+
+
+        // function sub2(a,b){
+        //     if(isNaN(a)|| isNaN(b)){
+        //         return "please pass only number"
+        //     }
+        //     return a-b
+        // }
+        // var r2= sub2(10,"number")
+        // console.log("r--:",r) // NaN
+        // -------->
+
+
+        // <--------
+        function multi(a,b,callback){
+            if(isNaN(a)|| isNaN(b)){
+                callback("please pass only number",null)
+            }else{
+                callback(null,a*b)
+            }
+        }
+        multi(2,"sdfs",function(err,res){
+            if(err){
+                console.log(err)
+            }else{
+                console.log(res)
+            }
+        })
+        // -------->
+
+
+
+    </script>
+    
+</body>
+</html>
